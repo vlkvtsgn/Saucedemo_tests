@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
     public WebDriver browser;
-
     @BeforeMethod
     public void setup() {
         ChromeOptions options = new ChromeOptions();
@@ -15,9 +14,9 @@ public class BaseTest {
         browser = new ChromeDriver(options);
         browser.get("https://www.saucedemo.com/");
     }
-
     @AfterMethod
     public void closeBrowser() {
         browser.quit();
     }
 }
+
