@@ -13,7 +13,7 @@ import java.time.Duration;
 public class BaseTest {
     public WebDriver driver;
     LoginPage loginPage;
-     ProductsPage productsPage;
+    ProductsPage productsPage;
 
     @BeforeMethod
     public void setup() {
@@ -31,6 +31,6 @@ public class BaseTest {
 
     @AfterMethod
     public void closeBrowser() {
-        driver.quit();
+        //driver.quit();
     }
 }
