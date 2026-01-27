@@ -18,14 +18,10 @@ public class LoginTest extends BaseTest {
 
     @DataProvider(name = "incorrectLoginData")
     public Object[][] loginData() {
-        return new Object[][]{{"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
-                {"", "secret_sauce", "Epic sadface: Username is required"},
-                {"standard_user", "", "Epic sadface: Password is required"},
-                {"Standard User", "secret_sauce", "Epic sadface: Username and password do not match any user in this service"}};
+        return new Object[][]{{"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."}, {"", "secret_sauce", "Epic sadface: Username is required"}, {"standard_user", "", "Epic sadface: Password is required"}, {"Standard User", "secret_sauce", "Epic sadface: Username and password do not match any user in this service"}};
     }
 
-    @Test(dataProvider = "incorrectLoginData", description = "тест проверяет авторизацию заблокированного пользователя",
-            invocationCount = 2, priority = 3)
+    @Test(dataProvider = "incorrectLoginData", description = "тест проверяет авторизацию заблокированного пользователя", invocationCount = 2, priority = 3)
     public void incorrectLogin(String user, String password, String errorMsg) {
         loginPage.open();
         loginPage.login(user, password);
